@@ -1,0 +1,16 @@
+node_modules/
+.gradle/
+build/
+app/build/
+local.properties
+server/data/
+.env
+*.jks
+*.keystore
+.tools/
+test-results/
+deliverables/
+
+server/accounts.seed.json
+*.p12
+password.txt

@@ -1,0 +1,34 @@
+services:
+  jazzy:
+    build: .
+    restart: unless-stopped
+    environment:
+      JAZZY_SETUP_TOKEN: ${JAZZY_SETUP_TOKEN:?Set JAZZY_SETUP_TOKEN in .env}
+      JAZZY_MAX_ROOM_MB: 512
+    volumes:
+      - jazzy_data:/app/data
+    networks: [jazzy]
+    security_opt: [no-new-privileges:true]
+    cap_drop: [ALL]
+    read_only: true
+    tmpfs: [/tmp]
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      JAZZY_DOMAIN: ${JAZZY_DOMAIN:?Set JAZZY_DOMAIN in .env}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    networks: [jazzy]
+    depends_on: [jazzy]
+networks:
+  jazzy:
+volumes:
+  jazzy_data:
+  caddy_data:
+  caddy_config:

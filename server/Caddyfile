@@ -1,0 +1,11 @@
+{$JAZZY_DOMAIN} {
+    request_body {
+        max_size 18MB
+    }
+    header {
+        Strict-Transport-Security "max-age=31536000"
+        X-Content-Type-Options "nosniff"
+        -Server
+    }
+    reverse_proxy jazzy:8787
+}

@@ -1,0 +1,14 @@
+{
+  "name": "jazzy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A private two-person Android social app for Hyu Suk and Jazzy",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "server": "node server/server.mjs",
+    "preview": "node scripts/preview.mjs",
+    "build:apk": "bash scripts/build-apk.sh"
+  },
+  "engines": { "node": ">=24" }
+}

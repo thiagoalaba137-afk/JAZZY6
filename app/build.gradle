@@ -1,0 +1,19 @@
+plugins { id 'com.android.application' }
+android {
+    namespace 'app.jazzy'
+    compileSdk 35
+    defaultConfig {
+        applicationId 'app.jazzy'
+        minSdk 26
+        targetSdk 35
+        versionCode 3
+        versionName '1.1.1'
+    }
+    buildTypes {
+        release { minifyEnabled false; debuggable false }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
